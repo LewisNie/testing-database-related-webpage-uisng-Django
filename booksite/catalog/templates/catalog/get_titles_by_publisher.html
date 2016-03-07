@@ -1,0 +1,23 @@
+<h2>Find Titles of a Publisher</h2>
+
+{% if result %}
+    {% if title_list %}
+        <p>For {{ publisher.pub_name }}:</p>
+        <ul>
+        {% for book in title_list %}
+            <li>{{ book.title }} {{ book.price }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+	<p>No titles by the publisher are available.</p>
+    {% endif %}
+{% else %}
+    <form action="/catalog/get/titles/by/publisher/" method="post">
+        <!-- Next line provides standard Django mechanism for preventing cross-site request forgeries -->
+        {% csrf_token %}
+        <label for="id_publisher">Publisher:</label><input id="id_publisher" maxlength="100" name="publisher" type="text" />
+        <input type="submit" value="Lookup" />
+    </form>
+{% endif %}
+<a href="/catalog/">Return to Index</a>
+

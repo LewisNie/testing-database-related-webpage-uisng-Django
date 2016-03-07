@@ -1,0 +1,27 @@
+<!-- The index page template.
+
+The { %, % }'s (the template processor ignores HTML, including
+comments, so the spaces have been added to avoid getting processed)
+mark the code the template processor will handle.
+
+The code is able to access variables from the python view code,
+but while keywords like "if" and "for" behave like their Python
+counterparts, general Python syntax is not supported
+-->
+<h2>Django interface for an early version of the Microsoft "pubs" database</h2>
+
+The functionality supported includes:
+<ul>
+<li>
+<a href="add/publisher/">Add a publisher</a>
+</li>
+<li>
+<a href="add/title/">Add a title</a> (publisher must have already been added)
+</li>
+<li>
+<a href="get/titles/by/publisher/">Get all titles from a single publisher</a>
+</li>
+<li>
+<a href="get/publisher/of/title/">Find the publisher of a title</a> (Must know full title)
+</li>
+</ul>

@@ -1,0 +1,12 @@
+<h2>Add a New Title</h2>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/catalog/add/title/" method="post">
+    <!-- Next line provides standard Django mechanism for preventing cross-site request forgeries -->
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+
+<a href="/catalog/">Return to Index</a>

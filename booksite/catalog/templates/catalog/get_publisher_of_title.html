@@ -1,0 +1,17 @@
+<h2>Find Publisher of Title</h2>
+
+{% if result %}
+    {% if publisher %}
+        <p>The publisher is {{ publisher.pub_id.pub_name }}</p>
+    {% else %}
+	<p>The title was not found.</p>
+    {% endif %}
+{% endif %}
+
+<form action="/catalog/get/publisher/of/title/" method="post">
+    <!-- Next line provides standard Django mechanism for preventing cross-site request forgeries -->
+    {% csrf_token %}
+    <label for="id_title">Title:</label><input id="id_title" maxlength="100" name="title" type="text" />
+    <input type="submit" value="Lookup" />
+</form>
+<a href="/catalog/">Return to Index</a>
